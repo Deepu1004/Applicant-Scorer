@@ -1,0 +1,26 @@
+@keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.05); }
+  }
+  @keyframes pulse-slow-delay {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.05); }
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .animate-pulse-slow-delay {
+    animation: pulse-slow-delay 7s 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+/* Add this to your global CSS */
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%; /* Tailwind equivalent: bg-[length:200%_auto] or bg-[length:200%_200%] */
+  animation: gradient-animation 4s ease infinite; /* Adjust duration as needed */
+}

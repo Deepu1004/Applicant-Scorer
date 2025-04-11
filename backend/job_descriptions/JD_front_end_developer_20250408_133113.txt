@@ -1,0 +1,31 @@
+Job Title: front end developer
+Experience Required: fresher
+====================================
+
+Job Overview
+
+This role is for a Front End Developer to join our dynamic team.  The successful candidate will contribute directly to the development and maintenance of our web applications, focusing on creating engaging and user-friendly interfaces. This position plays a critical role in delivering high-quality user experiences and ensuring our websites are both functional and aesthetically pleasing, directly impacting our company's ability to reach and engage our target audience. The primary objective is to translate designs and wireframes into clean, efficient, and reusable code.
+
+Key Responsibilities
+
+This Front End Developer will be responsible for implementing visual designs, translating designs and wireframes into high-quality code, developing and maintaining responsive web applications, and ensuring cross-browser compatibility.  The role involves working closely with designers and back-end developers to ensure seamless integration and functionality.  Typical projects include the development of new features for existing web applications, the creation of prototypes for new applications, and the maintenance and bug fixing of existing code.  The ability to effectively troubleshoot and resolve front-end related issues is crucial.  Furthermore, participation in code reviews and contributing to the improvement of our development processes will be expected.
+
+Required Skills & Qualifications
+
+The ideal candidate will possess a solid understanding of HTML, CSS, and JavaScript.  Experience with popular JavaScript frameworks such as React, Angular, or Vue.js is highly desirable. Familiarity with responsive design principles, cross-browser compatibility, and accessibility standards is also necessary.  A foundational understanding of version control systems, such as Git, is essential for effective teamwork and code management. Proficiency in using developer tools for debugging and performance optimization is also a requirement.
+
+Required Soft Skills & Competencies
+
+This role requires strong communication skills, enabling effective collaboration with designers and back-end developers.  Problem-solving abilities are essential to overcome UI challenges and find creative solutions to technical obstacles.  The candidate must demonstrate a proactive approach to learning new technologies and staying current with industry trends, as the front-end landscape is constantly evolving.  A passion for creating elegant and user-friendly interfaces, along with the ability to work both independently and as part of a team, are key attributes for success.
+
+Required Experience
+
+This position is ideal for a recent graduate or a fresher with minimal professional experience. While prior professional experience is not strictly required, we are looking for evidence of practical skills gained through personal projects, internships, or academic coursework.  Candidates should be able to showcase their understanding of front-end development principles through examples of their work, such as personal websites or contributions to open-source projects.  A portfolio demonstrating practical application of HTML, CSS, and JavaScript is essential.
+
+Preferred Qualifications
+
+Experience with testing frameworks such as Jest or Cypress, or familiarity with design tools such as Figma or Sketch, would be advantageous.  A foundational understanding of UI/UX principles and experience working with accessibility standards (WCAG) would also be beneficial.
+
+Work Environment / Team Culture
+
+We foster a collaborative and supportive team environment. Our team is passionate about creating innovative and impactful web applications.  We encourage knowledge sharing, continuous learning, and a culture of constructive feedback.  We are committed to providing a positive and inclusive work environment for all employees.

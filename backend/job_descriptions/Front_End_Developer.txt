@@ -1,0 +1,43 @@
+Job Title: Front End Developer
+
+Job Overview:
+
+We are seeking a highly motivated and enthusiastic Front End Developer to join our growing team.  This role will play a vital part in the development and maintenance of our company's websites and web applications.  The successful candidate will be responsible for translating designs and wireframes into clean, efficient, and reusable code.  Their work will directly impact the user experience and contribute to the overall success of our digital presence.
+
+Key Responsibilities:
+
+Translate designs and wireframes into clean, efficient, and reusable code.
+Develop and maintain responsive web applications across various devices and browsers.
+Write clean, well-documented, and testable code.
+Collaborate with back-end developers and designers to ensure seamless integration.
+Troubleshoot and debug applications to ensure optimal performance.
+Participate in code reviews and provide constructive feedback.
+Stay up-to-date with the latest front-end technologies and best practices.
+Contribute to the improvement of our development processes and workflows.
+
+Required Skills & Qualifications:
+
+Proficiency in HTML, CSS, and JavaScript.
+Understanding of responsive design principles.
+Experience with at least one popular JavaScript framework (e.g., ReactJs, Angular, Vue.js).  Familiarity with a specific framework is a plus, but willingness to learn is essential.
+Experience with version control systems (e.g., Git, GitHub).
+Familiarity with testing frameworks and methodologies.
+Strong understanding of web development principles and best practices.
+Basic understanding of front-end build tools (e.g., Webpack, Parcel).
+
+Experience:
+
+This position is ideal for a recent graduate or someone with less than one year of professional experience in a similar role.  While prior experience is preferred, we are willing to consider candidates with strong academic projects demonstrating relevant skills and a proven ability to learn quickly.
+
+Soft Skills:
+
+Excellent communication skills, both written and verbal.
+Ability to work effectively both independently and as part of a team.
+Strong problem-solving and analytical skills.
+Proactive approach to learning and development.
+Ability to work under pressure and meet deadlines.
+A keen eye for detail and a commitment to quality.
+
+Salary & Benefits (Optional):
+
+The salary for this position is competitive and commensurate with experience.  Benefits include health insurance, paid time off, and opportunities for professional development.  A specific salary range will be discussed during the interview process.

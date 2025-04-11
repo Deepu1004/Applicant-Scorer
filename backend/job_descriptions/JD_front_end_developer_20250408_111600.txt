@@ -1,0 +1,35 @@
+Job Title: front end developer
+Experience Required: intern(0 years)
+====================================
+
+Job Overview
+
+This internship provides a foundational experience in front-end web development, contributing directly to the development of our company's web properties.  The intern will work alongside experienced developers, learning practical skills and contributing to real-world projects under close supervision. The primary objective is to build a strong understanding of front-end technologies, best practices, and collaborative workflows, thereby preparing the intern for a future career in software development. The intern's work will directly impact the user experience and functionality of our websites and applications.
+
+Key Responsibilities
+
+The Front-End Developer Intern will assist senior developers in various tasks related to the development and maintenance of user interfaces.  This will involve working on projects ranging from small UI improvements to larger feature implementations.  Daily tasks may include writing and testing code, resolving bugs, collaborating with designers on the implementation of visual designs, and participating in code reviews. The intern will learn to adhere to established coding standards and contribute to the team's overall efficiency and project deliverables.  They will gain experience in the entire software development lifecycle, from concept to deployment, and contribute to the maintenance and optimization of existing codebases.
+
+Required Skills & Qualifications
+
+A solid foundation in fundamental computer science principles and a genuine passion for front-end development are essential.  The successful candidate will possess a strong understanding of HTML, CSS, and JavaScript, demonstrating the ability to write clean, efficient, and well-documented code.  Familiarity with responsive design principles and experience building user interfaces that are accessible to diverse users are highly valued.  The intern should be eager to learn new technologies and adapt to evolving industry standards.  While prior professional experience is not required, a demonstrable portfolio of personal projects or coursework showcasing front-end development skills is highly desirable.
+
+Coding Languages: HTML, CSS, JavaScript.
+Tools:  Version control systems (e.g., Git), browser developer tools.
+Frameworks:  A basic understanding of at least one popular JavaScript framework (e.g., React, Angular, Vue.js) is beneficial, though not strictly required for this internship level.
+
+Required Soft Skills & Competencies
+
+Effective communication is paramount in this role, requiring the ability to clearly articulate technical ideas and collaborate effectively with designers and back-end developers.  Problem-solving skills are crucial for overcoming UI challenges and optimizing code performance. A proactive approach to learning is vital, given the rapid pace of innovation in the front-end landscape. The ideal candidate will possess strong time management skills,  a willingness to seek feedback and learn from mistakes, and the ability to work both independently and as part of a team.  Adaptability and a positive attitude are highly valued attributes.
+
+Required Experience
+
+This is an entry-level internship; therefore, no prior professional experience in front-end development is required.  However, a strong academic background in computer science or a related field, demonstrated through relevant coursework, personal projects, or participation in hackathons, is essential.  The ideal candidate will have a proven aptitude for learning new technologies and a portfolio that showcases their understanding of fundamental front-end concepts.  Previous experience with internships or volunteer work in a technology-related field is a plus.
+
+Preferred Qualifications
+
+Experience with testing frameworks (e.g., Jest, Mocha), familiarity with design tools (e.g., Figma, Sketch), and knowledge of accessibility best practices (WCAG) would be advantageous.  Experience contributing to open-source projects or participation in relevant coding communities is also viewed favorably.
+
+Work Environment / Team Culture
+
+We foster a collaborative and supportive team environment where learning and professional development are highly encouraged.  We value open communication, teamwork, and a commitment to delivering high-quality work.  Our team is passionate about technology and creating exceptional user experiences, and we are looking for an intern who shares this passion.

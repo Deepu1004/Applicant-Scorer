@@ -1,0 +1,63 @@
+Company Overview: Digitral Private Limited (the Company) is a leading provider of software and
+services that enables organizations to use mobile and digital technologies to improve customer
+engagement. The Company is based out of Hyderabad and is part of Digitral Group which is
+headquartered in Dubai. Our platforms are cloud-native with a comprehensive portfolio designed to
+grow revenues, engage customers, manage operations to deliver a truly unique customer
+experience. We deliver seamless end-to-end enablement for mobile operators, brands, and
+enterprises.
+Product: QApilot is an AI-augmented mobile application test automation product. AI-augmented
+software testing is evolving at a rapid pace.
+Website link: https://digitral.com/
+Location:
+Digitral Private Limited
+2nd Floor, Skyview 10,
+Raidurgam, Hyderabad, India – 500081
+Overview:
+We are seeking talented and enthusiastic full-time team members to work on innovative Proof of
+Concepts and contribute to the development of advanced technology solutions, with a strong focus
+on Artificial Intelligence. This position offers a unique opportunity to engage with the latest industry
+advancements, expand technical skills, and work on impactful real-world projects.
+Key Responsibilities:
+1. Independent POC Development:
+Research, experiment, and build prototypes using AI tools and frameworks to explore and
+demonstrate new technologies, particularly in AI domains such as machine learning, natural
+language processing, and computer vision.
+2. Feature Development on Existing Products:
+• Collaborate with the development team to enhance existing products by incorporating new
+features, including AI-powered functionalities.
+• Understand the product roadmap, follow best practices in software development, and
+contribute meaningful improvements.
+
+Required Qualifications:
+Discipline or Branch of Study:
+• Computer Science
+• Information Technology
+• Electronics and Communication
+
+As part of this role, you will:
+• Work on AI-driven automation solutions to enhance test execution.
+• Use Python (or other relevant tech) to develop & integrate AI capabilities.
+• Learn new frameworks, optimize automation strategies, and work in a fast-paced startup
+environment (15-20 team members).
+• Be part of a supportive and growth-focused culture.
+Skills Required:
+• Solid understanding of AI and machine learning concepts
+• Proficiency in programming languages such as Python, Java, or JavaScript
+• Strong analytical and problem-solving skills
+• Ability to work collaboratively in a dynamic and fast-paced environment.
+What We Offer:
+• Competitive compensation package.
+• Opportunity to work on live projects for hands-on experience.
+• Flexible hybrid work options.
+• Continuouslearning and development in cutting-edge technologies.
+• A supportive team environment with experienced mentors to guide you.
+
+Why Join Us?
+At Digitral, we cultivate a culture of innovation and creativity. Our team is passionate about
+
+technology, and we value fresh ideas that drive success. We celebrate achievements, foster team-
+building activities, and promote a healthy work-life balance.
+
+Joining Digitral offers the chance to contribute to impactful projects, work with state-of-the-art
+technologies, and grow alongside industry leaders. This is more than just a job; it’s an opportunity
+to make a difference in the tech industry

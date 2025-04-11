@@ -1,0 +1,31 @@
+Job Title: AI ML Intern
+Experience Required: fresher
+====================================
+
+Job Overview
+
+This AI/ML Internship offers a unique opportunity for a highly motivated and enthusiastic fresher to gain practical experience in the field of artificial intelligence and machine learning.  The intern will contribute to real-world projects within our team, working alongside experienced engineers and data scientists.  The primary objective is to assist in the development and implementation of AI/ML models, contributing to improved efficiency and performance across various company products and services. This role provides valuable hands-on experience and mentorship, preparing the intern for a successful career in the rapidly growing AI/ML industry.
+
+Key Responsibilities
+
+As an AI/ML Intern, you will be involved in various aspects of the machine learning lifecycle.  This includes assisting with data cleaning and preprocessing, exploring and evaluating different machine learning algorithms, developing and implementing models using Python and relevant libraries, and conducting rigorous testing and validation. You will work on projects ranging from improving the accuracy of our existing prediction models to exploring new applications of machine learning within our products. You will be expected to document your work clearly and contribute to team discussions, presenting findings and insights to senior team members.
+
+Required Skills & Qualifications
+
+A strong foundation in computer science or a related field is crucial. This includes a solid understanding of fundamental programming concepts, data structures, and algorithms. Proficiency in Python is essential, along with familiarity with commonly used machine learning libraries such as Scikit-learn, TensorFlow, or PyTorch.  A basic understanding of statistical methods and machine learning concepts, including regression, classification, and model evaluation techniques, is also vital.  Experience with version control systems like Git is highly desirable.
+
+Required Soft Skills & Competencies
+
+Success in this role requires excellent problem-solving skills, a proactive approach to learning, and strong communication abilities.  You will need to be able to collaborate effectively with other team members, including engineers and designers, clearly articulating technical concepts and receiving constructive feedback.  The ability to adapt to new technologies and challenges is essential, as is a willingness to continuously learn and expand your knowledge in the ever-evolving field of AI/ML.  A detail-oriented approach to work and a commitment to producing high-quality results are critical.
+
+Required Experience
+
+This is a fresher-level internship, therefore prior professional experience is not required. However, we are looking for candidates who have demonstrated a keen interest in AI/ML through academic projects, personal projects, or participation in relevant competitions.  Successful candidates will ideally have completed coursework covering machine learning fundamentals and possess some level of practical coding experience in Python.  Projects demonstrating the application of machine learning concepts, even small-scale ones, are very valuable in demonstrating your abilities and interest.
+
+Preferred Qualifications
+
+Experience with cloud computing platforms such as AWS, Azure, or GCP would be a significant advantage, as would familiarity with specific model deployment techniques or experience using deep learning frameworks.  A background in data visualization or experience with data analysis tools like SQL would also be beneficial.  Any knowledge of specific testing libraries or experience working with large datasets would be a plus.
+
+Work Environment / Team Culture
+
+Our team fosters a collaborative and supportive environment where knowledge sharing and professional growth are encouraged. We value innovation, creativity, and a willingness to take on new challenges.  We believe in providing a supportive and inclusive environment for all our interns, enabling them to contribute their unique skills and perspectives to our team.  We offer regular feedback and mentorship opportunities to help our interns succeed and thrive.
