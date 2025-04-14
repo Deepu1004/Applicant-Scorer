@@ -1,7 +1,7 @@
 # Applicant Scorer - AI-Powered ATS Assistant
 
 <p align="center">
-  <img src="frontend/public/logo2.png" alt="Applicant Scorer Logo" width="120">
+  <img src="https://github.com/Deepu1004/Applicant-Scorer-Private/blob/main/public/logo.png" alt="Applicant Scorer Logo" width="120">
 </p>
 
 <p align="center">
