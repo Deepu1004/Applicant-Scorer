@@ -1,9 +1,8 @@
-pdfminer3
-pyresparser
-streamlit
-pandas
-pafy
-plotly
-pymysql
-streamlit-tags
-Pillow
+Flask
+Flask-Cors
+Werkzeug
+PyMuPDF
+python-docx
+spacy
+nltk
+google-generativeai
