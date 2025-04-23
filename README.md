@@ -1,84 +1,86 @@
 # Applicant Scorer - AI-Powered ATS Assistant
 
 <p align="center">
-  <img src="https://github.com/Deepu1004/Applicant-Scorer-Private/blob/main/public/logo.png" alt="Applicant Scorer Logo" width="120">
+  <img src="https://github.com/Deepu1004/Applicant-Scorer/blob/main/public%20/logo.png" alt="Applicant Scorer Logo" width="120">
 </p>
 
 <p align="center">
-  <strong>Streamline your hiring process and job search with AI-driven resume scanning, keyword analysis, and job description generation.</strong>
+  <strong>Unlock smarter hiring and optimize your job search with AI-driven resume analysis, keyword insights, and effortless job description generation.</strong>
 </p>
 
 <p align="center">
-  <a href="#features">Features</a> •
-  <a href="#tech-stack">Tech Stack</a> •
-  <a href="#installation--setup">Setup</a> •
-  <a href="#running-the-application">Running</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#contributing">Contributing</a>
+  <a href="#✨-why-applicant-scorer">Why Applicant Scorer?</a> •
+  <a href="#🚀-key-features">Features</a> •
+  <a href="#🛠️-tech-stack">Tech Stack</a> •
+  <a href="#⚙️-setup--installation">Setup</a> •
+  <a href="#▶️-running-the-application">Running</a> •
+  <a href="#📖-usage-guide">Usage</a> •
+  <a href="#🔒-code-privacy">Code Privacy</a>
 </p>
 
 ---
 
-## ✨ Overview
+## ✨ Why Applicant Scorer?
 
-Applicant Scorer is a full-stack web application designed to assist both recruiters and job seekers. It leverages AI (Google Gemini) and NLP techniques (spaCy, NLTK) to:
+In today's competitive landscape, both hiring managers and job seekers face significant challenges. Recruiters sift through hundreds of resumes, struggling to identify the best fit quickly. Job seekers strive to tailor their applications to pass automated screening systems (ATS).
 
-*   **Generate** professional, ATS-friendly job descriptions based on title and experience level.
-*   **Upload and parse** resumes (PDF, DOCX) to extract key information.
-*   **Scan** uploaded resumes against a specific job description.
-*   **Rank** candidates based on keyword matching scores.
-*   **Provide insights** into matched and missing keywords.
+**Applicant Scorer** bridges this gap. It's a sophisticated full-stack application designed to:
 
-The application features a modern, responsive frontend built with React and Tailwind CSS, enhanced with smooth animations using Framer Motion. The backend is a robust Flask server handling file management, parsing, AI interaction, and analysis logic.
+*   **For Recruiters:** Dramatically reduce screening time, identify top candidates based on objective data, and ensure job descriptions are clear and effective.
+*   **For Job Seekers:** Understand how their resume matches specific job requirements, identify keyword gaps, and gain insights to improve their application success rate.
 
-## 📸 Screenshots
+Leveraging the power of Google Gemini for AI generation and robust NLP libraries (spaCy, NLTK) for analysis, Applicant Scorer provides actionable intelligence within a sleek, modern interface.
 
-*(Add screenshots of your application here! This significantly improves the README.)*
+---
 
-**Example: Homepage**
-![Homepage Preview](frontend/public/Scan.png)
+## 📸 Application Showcase
 
-**Example: JD Generation**
-*(Placeholder: Add a screenshot of the Job Description Studio page)*
+**Homepage:**
+![Homepage Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public%20/HomePage.png)
 
-**Example: Resume Scanning Results**
-*(Placeholder: Add a screenshot of the Scan Results page)*
+**Resume Upload & Parsing:**
+![Resume Upload Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public%20/Resume_Upload.png)
 
-**Example: Resume Upload**
-*(Placeholder: Add a screenshot of the Bulk Upload page)*
+**AI Job Description Generation:**
+![JD Generation Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public%20/JD_Generation.png)
+
+**Resume Scanning Interface:**
+![Resume Scan Page Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public%20/Resume_Scan.png)
+
+**Insightful Scan Results:**
+![Sample Results Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public%20/Sample_Results.png)
 
 ---
 
 ## 🚀 Key Features
 
-*   📄 **Resume Upload & Parsing:**
-    *   Supports `.pdf` and `.docx` formats.
-    *   Securely saves original files.
-    *   Extracts text content efficiently.
-    *   Parses resumes to identify contact info (name, email, phone), links (LinkedIn, GitHub), and key sections (summary, experience, education, skills, projects, etc.).
-    *   Saves parsed data as structured JSON.
-*   ✍️ **AI Job Description Generation:**
-    *   Uses Google Gemini (Flash model) to generate comprehensive JDs.
-    *   Input job title and experience level.
-    *   Generates structured, professional descriptions optimized for ATS keywords.
-    *   Allows manual editing and saving of JDs.
+*   📄 **Seamless Resume Processing:**
+    *   Effortlessly upload multiple resumes (`.pdf`, `.docx`).
+    *   Secure storage of original files.
+    *   Intelligent text extraction and parsing using NLP.
+    *   Identifies key sections: contact info (name, email, phone), links (LinkedIn, GitHub), summary, experience, education, skills, projects.
+    *   Stores structured data (JSON) for efficient analysis.
+*   ✍️ **Intelligent JD Generation (AI-Powered):**
+    *   Utilizes Google Gemini to craft professional, ATS-optimized job descriptions.
+    *   Simply provide a job title and experience level.
+    *   Generates comprehensive JDs covering responsibilities, qualifications, and skills.
+    *   Option for manual input and editing.
 *   💾 **Job Description Management:**
-    *   Save generated or manually entered JDs as `.txt` files.
-    *   List and preview saved JDs.
-*   🔍 **Batch Resume Scanning:**
-    *   Select a saved JD.
-    *   Scan all previously parsed resumes against the chosen JD.
-    *   Utilizes NLTK for robust keyword extraction and comparison (lemmatization, POS tagging, stop word removal).
-*   📊 **Ranked Results & Insights:**
-    *   Displays a ranked list of candidates based on match score (%).
-    *   Shows extracted contact information for top candidates.
-    *   Highlights matched and missing keywords for each resume vs. the JD.
-    *   Provides download links for original resumes.
-*   🎨 **Modern UI/UX:**
-    *   Clean, responsive design with Tailwind CSS.
-    *   Smooth page transitions and element animations using Framer Motion.
-    *   Intuitive user flow across different modules.
-    *   Clear loading states and error handling.
+    *   Save generated or manually created JDs as organized `.txt` files.
+    *   Easily browse, preview, and select saved JDs for scanning.
+*   🔍 **Advanced Resume Scanning & Analysis:**
+    *   Select a saved JD and scan your entire pool of uploaded resumes against it in batch.
+    *   Sophisticated keyword extraction using NLTK (lemmatization, POS tagging, stop-word removal) for accurate matching.
+*   📊 **Actionable Insights & Candidate Ranking:**
+    *   View a clearly ranked list of candidates based on their percentage match score to the JD.
+    *   Instantly access extracted contact information.
+    *   Detailed breakdown of **Matched Keywords** and **Missing Keywords** for each candidate, highlighting strengths and areas for improvement (or interview focus).
+    *   Direct download links to original resume files.
+*   🎨 **Modern & Intuitive UI/UX:**
+    *   Built with React and Tailwind CSS for a clean, responsive experience on any device.
+    *   Engaging animations via Framer Motion for smooth navigation and interactions.
+    *   User-friendly workflows guide you through each step.
+    *   Clear visual feedback with loading states and error handling.
 
 ---
 
@@ -95,10 +97,11 @@ The application features a modern, responsive frontend built with React and Tail
 **Backend:**
 *   ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 *   ![Flask](https://img.shields.io/badge/Flask-000000?style=flat&logo=flask&logoColor=white)
-*   ![spaCy](https://img.shields.io/badge/spaCy-09A3D5?style=flat&logo=spacy&logoColor=white) (for NLP tasks like Name Extraction)
-*   ![NLTK](https://img.shields.io/badge/NLTK-3776AB?style=flat) (for Keyword Extraction & Matching)
-*   ![PyMuPDF](https://img.shields.io/badge/PyMuPDF-fitz-orange?style=flat) (for PDF text extraction)
-*   ![python-docx](https://img.shields.io/badge/python--docx-2B579A?style=flat) (for DOCX text extraction)
+*   ![spaCy](https://img.shields.io/badge/spaCy-09A3D5?style=flat&logo=spacy&logoColor=white) (Name Extraction, NLP Utilities)
+*   ![NLTK](https://img.shields.io/badge/NLTK-3776AB?style=flat) (Keyword Extraction, Matching Logic)
+*   ![PyMuPDF](https://img.shields.io/badge/PyMuPDF-fitz-orange?style=flat) (PDF Parsing)
+*   ![python-docx](https://img.shields.io/badge/python--docx-2B579A?style=flat) (DOCX Parsing)
+*   ![Flask-CORS](https://img.shields.io/badge/Flask_CORS-F05032?style=flat&logo=flask&logoColor=white)
 
 **AI Service:**
 *   ![Google Cloud](https://img.shields.io/badge/Google_Gemini-4285F4?style=flat&logo=googlecloud&logoColor=white)
@@ -107,49 +110,48 @@ The application features a modern, responsive frontend built with React and Tail
 
 ## 📋 Prerequisites
 
-Before you begin, ensure you have the following installed:
+Ensure the following are installed on your system:
 
 *   **Python:** Version 3.8 or higher.
-*   **Node.js:** Version 18.x or higher (comes with npm).
-*   **Git:** For cloning the repository.
-*   **Google Gemini API Key:** You need an API key from Google AI Studio or Google Cloud for the JD Generation feature.
+*   **Node.js:** Version 18.x or higher (includes npm).
+*   **Google Gemini API Key:** Obtain an API key from [Google AI Studio](https://aistudio.google.com/) or Google Cloud Platform. This is required for the JD Generation feature.
 
 ---
 
-## ⚙️ Installation & Setup
+## ⚙️ Setup & Installation
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone https://github.com/your-username/applicant-scorer.git # Replace with your repo URL
-    cd applicant-scorer
-    ```
+**Note:** The source code for Applicant Scorer is private. These instructions assume you have obtained the codebase through authorized means and have the necessary files.
 
-2.  **Backend Setup:**
-    *   **Navigate to Backend (Root Directory):** The backend code (`app.py`, etc.) is assumed to be in the root directory based on your file structure.
-    *   **Create a Virtual Environment:**
+1.  **Organize Project Files:**
+    *   Ensure you have the complete project structure, typically with a main backend directory (containing `app.py`, `config.py`, etc.) and a `frontend` subdirectory.
+    *   Place the entire project folder in your desired location.
+
+2.  **Backend Setup (Flask & NLP):**
+    *   **Navigate to the Backend Directory:** Open your terminal/command prompt and change to the root directory of the project (where `app.py` resides).
+    *   **Create & Activate Virtual Environment:**
         ```bash
         python -m venv venv
+        # Windows
+        .\venv\Scripts\activate
+        # macOS/Linux
+        source venv/bin/activate
         ```
-    *   **Activate the Virtual Environment:**
-        *   Windows: `.\venv\Scripts\activate`
-        *   macOS/Linux: `source venv/bin/activate`
+    *   **Generate `requirements.txt` (If Missing):** If you received the code without a `requirements.txt` but know the necessary packages were installed in the development environment, you *could* try freezing them (though having a definitive `requirements.txt` is best):
+        ```bash
+        # Make sure Flask, Flask-Cors, google-generativeai, spacy, nltk, PyMuPDF, python-docx are installed
+        pip freeze > requirements.txt
+        ```
     *   **Install Python Dependencies:**
-        *   ***IMPORTANT:*** Create a `requirements.txt` file in the root directory by running:
-            ```bash
-            pip freeze > requirements.txt
-            ```
-            *(Do this *after* ensuring all necessary packages like Flask, spacy, nltk, PyMuPDF, python-docx, Flask-Cors, etc., are installed in your development environment)*
-        *   Then install the requirements:
-            ```bash
-            pip install -r requirements.txt
-            ```
-    *   **NLTK and spaCy Data:** The application attempts to download required NLTK data (`punkt`, `stopwords`, `wordnet`, `omw-1.4`, `averaged_perceptron_tagger`) and the spaCy model (`en_core_web_sm`) automatically on the first run if they are missing. If you encounter issues, you might need to download them manually:
+        ```bash
+        pip install -r requirements.txt
+        ```
+    *   **Download NLP Models:** The application attempts to download necessary NLTK data and the spaCy model automatically on first run. If this fails, or for manual setup, run:
         ```bash
         python -m nltk.downloader punkt stopwords wordnet omw-1.4 averaged_perceptron_tagger
         python -m spacy download en_core_web_sm
         ```
 
-3.  **Frontend Setup:**
+3.  **Frontend Setup (React):**
     *   **Navigate to Frontend Directory:**
         ```bash
         cd frontend
@@ -164,82 +166,79 @@ Before you begin, ensure you have the following installed:
 ## 🔧 Configuration
 
 *   **Frontend (Gemini API Key):**
-    *   The frontend needs your Google Gemini API key to generate job descriptions.
-    *   Create a `.env` file in the `frontend/` directory:
-        ```bash
-        cd frontend
-        touch .env
-        ```
-    *   Add your API key to the `.env` file:
+    *   In the `frontend/` directory, create a file named `.env`.
+    *   Add your Google Gemini API key to this file:
         ```env
-        VITE_API_URL=http://localhost:5000 # Optional: Set if backend runs elsewhere
-        VITE_GEMINI_API_KEY=YOUR_GEMINI_API_KEY_HERE
+        # Example: If your backend runs on the default port
+        VITE_API_URL=http://127.0.0.1:5000
+        VITE_GEMINI_API_KEY=YOUR_ACTUAL_GEMINI_API_KEY
         ```
-    *   **Replace `YOUR_GEMINI_API_KEY_HERE` with your actual key.**
-    *   **IMPORTANT:** Do NOT commit your `.env` file to Git. Add it to your `.gitignore` file if it's not already there.
+    *   **Replace `YOUR_ACTUAL_GEMINI_API_KEY` with your real key.**
+    *   **Security:** Ensure `.env` is listed in your project's `.gitignore` file (if using version control internally) to prevent accidentally committing your API key.
 
 *   **Backend:**
-    *   Most backend configurations (folder paths, file size limits, NLP models) are set in `config.py`. You can modify this file directly if needed.
-    *   The required directories (`job_descriptions`, `uploads/resumes_original`, `uploads/resumes_parsed`) will be created automatically when the Flask server starts. Ensure the application has write permissions in its root directory.
+    *   Key settings (like upload folder paths, allowed extensions, AI model names) are often managed in a `config.py` file (or directly in `app.py`). Review this file if specific adjustments are needed.
+    *   The application is designed to automatically create necessary directories (`job_descriptions`, `uploads/resumes_original`, `uploads/resumes_parsed`) upon starting the backend server. Ensure the application has write permissions in its installation directory.
 
 ---
 
 ## ▶️ Running the Application
 
-You need to run both the backend and frontend servers simultaneously.
+Applicant Scorer requires both the backend and frontend servers to be running.
 
-1.  **Start the Backend (Flask Server):**
-    *   Make sure you are in the root directory of the project and your virtual environment is activated.
-    *   Run the Flask app:
+1.  **Start the Backend Server (Flask):**
+    *   Ensure you are in the project's root directory (where `app.py` is).
+    *   Make sure your Python virtual environment (`venv`) is activated.
+    *   Run the command:
         ```bash
         flask run
-        # OR
-        python app.py
+        # or potentially: python app.py
         ```
-    *   The backend server will typically start on `http://127.0.0.1:5000`. Check the console output for the exact URL.
+    *   The backend will typically start on `http://127.0.0.1:5000`. Note the address shown in the terminal.
 
-2.  **Start the Frontend (Vite Dev Server):**
-    *   Open a *new* terminal window/tab.
-    *   Navigate to the `frontend/` directory:
-        ```bash
-        cd frontend
-        ```
-    *   Run the Vite development server:
+2.  **Start the Frontend Server (Vite):**
+    *   Open a **new** terminal window or tab.
+    *   Navigate to the `frontend/` directory.
+    *   Run the command:
         ```bash
         npm run dev
         ```
-    *   The frontend application will typically start on `http://localhost:5173`. Open this URL in your web browser.
+    *   The frontend development server will usually start on `http://localhost:5173`. Open this URL in your web browser.
 
-*(The backend is configured with CORS to allow requests from `http://localhost:5173`.)*
+The application should now be accessible! The frontend is configured to communicate with the backend running on port 5000.
 
 ---
 
-## 📖 Usage
+## 📖 Usage Guide
 
-1.  **Home:** Provides an overview of the application's features and links to the main tools.
-2.  **Bulk Upload (`/bulk-upload`):**
-    *   Select or drag-and-drop multiple resume files (`.pdf`, `.docx`).
-    *   Click "Save Resumes". The backend will save the originals and parse them, storing the extracted data as JSON files (for internal use by the scanner).
-3.  **Generate JD (`/job-creation`):**
-    *   Choose "AI Generate" or "Manual Input".
-    *   **AI:** Enter a "Job Title" and "Experience Level", then click "Generate with AI". The Gemini API will be called to create a description.
-    *   **Manual:** Paste or write your job description directly into the textarea.
-    *   Edit the description as needed.
-    *   Enter the "Job Title" and "Experience Level" (required for saving).
-    *   Click "Save JD". The description will be saved as a `.txt` file on the backend.
-4.  **Scan Resume (`/scan`):**
-    *   Click "Start Scanning". A modal will appear.
-    *   If JDs are available, the modal lists them. Select the desired JD file to scan against.
-    *   You can optionally "Preview" the content of the selected JD.
+1.  **Navigate:** Use the sidebar or homepage links to access different modules.
+2.  **Upload Resumes (`/bulk-upload`):**
+    *   Drag and drop or select multiple `.pdf` or `.docx` resume files.
+    *   Click "Save Resumes". Files are uploaded, processed, and parsed data is stored for scanning. You'll see success messages or errors.
+3.  **Create Job Description (`/job-creation`):**
+    *   **AI Generation:** Select "AI Generate", enter a "Job Title" and "Experience Level", then click "Generate with AI". Review and edit the generated text.
+    *   **Manual Input:** Select "Manual Input" and paste or type your JD text.
+    *   **Save:** Provide a "Job Title" and "Experience Level" (used for the filename) and click "Save JD". It's stored on the backend.
+4.  **Scan Resumes (`/scan`):**
+    *   Click "Start Scanning".
+    *   A modal appears listing saved Job Descriptions (`.txt` files).
+    *   Select the desired JD. You can click "Preview" to verify its content.
     *   Click "Confirm & Scan".
-    *   The backend processes all previously uploaded/parsed resumes against the selected JD's keywords.
-    *   Results are displayed, ranked by match score (%). Each result shows:
-        *   Candidate Name (if found) & Score Badge
-        *   Contact Info (Email, Phone)
-        *   Matched Keywords (Expandable list)
-        *   Missing Keywords (Expandable list)
-        *   A link to download the original resume file.
+    *   The backend analyzes all parsed resumes against the selected JD's keywords.
+    *   **View Results:** The page updates with a ranked list of candidates:
+        *   Candidate Name & Score Badge.
+        *   Contact Details (Email/Phone if found).
+        *   Expandable lists showing **Matched Keywords** and **Missing Keywords**.
+        *   A "Download Resume" link for the original file.
 
 ---
 
-## 📂 Project Structure (Simplified)
+## 🔒 Code Privacy
+
+Please note that the source code for **Applicant Scorer** is proprietary and not publicly available. This README serves as documentation for authorized users and collaborators who have been granted access to the codebase. Distribution or sharing of the code is prohibited without explicit permission.
+
+---
+
+## 💬 Feedback & Support
+
+For questions, feedback, or support regarding Applicant Scorer (for authorized users), please reach out through the designated internal channels or contact the project owner/maintainer.
