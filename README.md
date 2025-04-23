@@ -1,7 +1,7 @@
 # Applicant Scorer - AI-Powered ATS Assistant
 
 <p align="center">
-  <img src="https://github.com/Deepu1004/Applicant-Scorer/blob/main/public%20/logo.png" alt="Applicant Scorer Logo" width="120">
+  <img src="https://github.com/Deepu1004/Applicant-Scorer/blob/main/public/logo.png" alt="Applicant Scorer Logo" width="120">
 </p>
 
 <p align="center">
@@ -36,19 +36,19 @@ Leveraging the power of Google Gemini for AI generation and robust NLP libraries
 ## 📸 Application Showcase
 
 **Homepage:**
-![Homepage Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public%20/HomePage.png)
+![Homepage Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public/HomePage.png)
 
 **Resume Upload & Parsing:**
-![Resume Upload Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public%20/Resume_Upload.png)
+![Resume Upload Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public/Resume_Upload.png)
 
 **AI Job Description Generation:**
-![JD Generation Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public%20/JD_Generation.png)
+![JD Generation Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public/JD_Generation.png)
 
 **Resume Scanning Interface:**
-![Resume Scan Page Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public%20/Resume_Scan.png)
+![Resume Scan Page Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public/Resume_Scan.png)
 
 **Insightful Scan Results:**
-![Sample Results Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public%20/Sample_Results.png)
+![Sample Results Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public/Sample_Results.png)
 
 ---
 
