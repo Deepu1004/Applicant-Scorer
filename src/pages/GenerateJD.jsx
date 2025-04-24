@@ -7,10 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 const SAVE_JD_URL = `${API_BASE_URL}/jd/save`;
 
-// WARNING: Hardcoding keys is insecure. Use environment variables.
-// Example using env var: const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-const GEMINI_API_KEY = "AIzaSyD1NyRNqR6dshyZ7ti8de8ai2No402bbew"; // <-- Replace with YOUR actual key or use env vars securely
-
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY; 
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 // --- Helper Function (callGeminiApi - unchanged logic) ---

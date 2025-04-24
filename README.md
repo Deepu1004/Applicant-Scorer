@@ -47,6 +47,9 @@ Leveraging the power of Google Gemini for AI generation and robust NLP libraries
 **Resume Scanning Interface:**
 ![Resume Scan Page Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public/Resume_Scan.png)
 
+**JD Selection in Resume Scan page:**
+![JD Selection Modal](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public/JD_Selection.png)
+
 **Insightful Scan Results:**
 ![Sample Results Preview](https://github.com/Deepu1004/Applicant-Scorer/blob/main/public/Sample_Results.png)
 

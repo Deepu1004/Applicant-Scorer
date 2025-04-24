@@ -1,1 +1,5 @@
 .DS_Store
+backend/__pycache__
+backend/job_descriptions
+backend/uploads
+node_modules
