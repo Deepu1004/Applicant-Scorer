@@ -236,12 +236,6 @@ The application should now be accessible! The frontend is configured to communic
 
 ---
 
-## 🔒 Code Privacy
-
-Please note that the source code for **Applicant Scorer** is proprietary and not publicly available. This README serves as documentation for authorized users and collaborators who have been granted access to the codebase. Distribution or sharing of the code is prohibited without explicit permission.
-
----
-
 ## 💬 Feedback & Support
 
 For questions, feedback, or support regarding Applicant Scorer (for authorized users), please reach out through the designated internal channels or contact the project owner/maintainer.
