@@ -1,44 +1,62 @@
+# backend/scan_resumes.py
 # -*- coding: utf-8 -*-
 import os
 import json
 import time
 import traceback
+import logging
 from flask import Blueprint, request, jsonify, current_app, abort
 from werkzeug.utils import secure_filename
 
-# Import utilities
-from utils import get_match_results
+# --- Relative Imports ---
+from .utils import get_match_results # Import the matching utility
 
 # Create Blueprint
-# Using url_prefix='/scan' makes routes like /scan/batch
 scan_bp = Blueprint('scan_resumes', __name__, url_prefix='/scan')
+
+# Logger - use Flask's app logger inside routes
+logger = logging.getLogger(__name__) # Fallback logger
 
 @scan_bp.route('/batch', methods=['POST'])
 def batch_scan_resumes():
-    """Scans parsed resumes against a specific job description."""
-    print("Received request to /scan/batch")
+    """
+    Scans all available parsed resumes (.json) against a selected job description (.txt).
+    Returns a list of results sorted by match score.
+    Uses current_app for config and logging.
+    """
+    log = current_app.logger # Use app logger
+    log.info("Received request to /scan/batch")
     start_time = time.time()
 
+    # --- Validate Input ---
     if not request.is_json:
-        return jsonify({"error": "Request must be JSON"}), 400
+        log.warning("Request to /scan/batch is not JSON.")
+        abort(400, description="Request must be JSON.")
+
     data = request.get_json();
     if not data:
-        return jsonify({"error": "Empty JSON body"}), 400
+        log.warning("Request to /scan/batch has empty JSON body.")
+        abort(400, description="Empty JSON body provided.")
 
     selected_jd_filename = data.get('jd_filename')
-    if not selected_jd_filename:
-        return jsonify({"error": "Missing 'jd_filename'"}), 400
+    if not selected_jd_filename or not isinstance(selected_jd_filename, str):
+        log.warning("Missing or invalid 'jd_filename' in /scan/batch request.")
+        abort(400, description="Missing or invalid 'jd_filename' (must be a string).")
 
-    # --- Validate JD Filename ---
+    # --- Validate JD Filename and Get Paths ---
     secure_jd_filename = secure_filename(selected_jd_filename)
     if secure_jd_filename != selected_jd_filename:
-        print(f"Invalid JD filename format provided: {selected_jd_filename}")
-        return jsonify({"error": "Invalid JD filename format."}), 400
+        log.warning(f"Invalid JD filename format provided: Original='{selected_jd_filename}', Secured='{secure_jd_filename}'")
+        abort(400, description="Invalid characters in JD filename.")
 
-    jd_folder = current_app.config['JOB_DESC_FOLDER']
-    parsed_folder = current_app.config['PARSED_DATA_FOLDER']
+    jd_folder = current_app.config.get('JOB_DESC_FOLDER')
+    parsed_folder = current_app.config.get('PARSED_DATA_FOLDER')
+    if not jd_folder or not parsed_folder:
+         log.error("JOB_DESC_FOLDER or PARSED_DATA_FOLDER not configured.")
+         abort(500, description="Server configuration error regarding storage paths.")
+
     jd_file_path = os.path.join(jd_folder, secure_jd_filename)
-    print(f"Scanning against JD: {secure_jd_filename}")
+    log.info(f"Scanning resumes against JD: {secure_jd_filename}")
 
     # --- Read Job Description ---
     jd_text = None
@@ -46,117 +64,152 @@ def batch_scan_resumes():
         abs_jd_folder = os.path.abspath(jd_folder)
         abs_jd_file_path = os.path.abspath(jd_file_path)
 
-        # Security check
+        # Security check: ensure file is within the designated folder
         if not abs_jd_file_path.startswith(abs_jd_folder + os.sep):
-             print(f"Access denied to JD file: {abs_jd_file_path}")
-             abort(403, "Access denied to JD.")
+             log.error(f"Access Denied (Path Traversal?): JD='{abs_jd_file_path}', Base='{abs_jd_folder}'")
+             abort(403, "Access denied to job description file.")
 
         if not os.path.isfile(abs_jd_file_path):
-            print(f"JD file not found: {abs_jd_file_path}")
-            return jsonify({"error": "jd_not_found", "message": f"JD '{secure_jd_filename}' not found."}), 404
+            log.warning(f"Selected JD file not found: {abs_jd_file_path}")
+            abort(404, description=f"Job Description file '{secure_jd_filename}' not found.")
 
         with open(abs_jd_file_path, 'r', encoding='utf-8') as f:
             jd_text = f.read()
 
-        if not jd_text.strip():
-            print(f"JD file is empty: {secure_jd_filename}")
-            return jsonify({"error": "jd_empty", "message": f"JD file '{secure_jd_filename}' is empty."}), 400
-    except Exception as e:
-        print(f"Error reading JD file {secure_jd_filename}: {e}"); traceback.print_exc()
-        return jsonify({"error": "jd_read_error", "message": f"Could not read JD file."}), 500
+        if not jd_text or not jd_text.strip():
+            log.warning(f"JD file is empty: {secure_jd_filename}")
+            abort(400, description=f"Job Description file '{secure_jd_filename}' is empty or contains only whitespace.")
 
-    # --- Find Parsed Resumes ---
+    except FileNotFoundError: # Should be caught by isfile, but good practice
+        log.warning(f"Selected JD file not found (exception): {abs_jd_file_path}")
+        abort(404, description=f"Job Description file '{secure_jd_filename}' not found.")
+    except Exception as e:
+        log.error(f"Error reading JD file {secure_jd_filename}: {e}", exc_info=True)
+        abort(500, description="Could not read the selected Job Description file.")
+
+    # --- Find and List Parsed Resume Files (.json) ---
     resume_results = []
     scan_errors = []
     parsed_json_files = []
     try:
         if not os.path.isdir(parsed_folder):
-             print(f"Error: Parsed resume directory not found: {parsed_folder}")
-             return jsonify({"error": "config_error", "message": "Parsed resume folder invalid."}), 500
+             log.warning(f"Parsed resume directory not found: {parsed_folder}. No resumes to scan.")
+             # Not necessarily an error if no resumes uploaded yet, return empty results
+             return jsonify({
+                 "jd_used": secure_jd_filename,
+                 "results": [],
+                 "scan_errors": [],
+                 "summary": {"total_resumes_found": 0, "successfully_scanned": 0, "errors": 0, "duration_seconds": 0}
+             }), 200
 
         abs_parsed_folder = os.path.abspath(parsed_folder)
         files_with_mtime = []
-        # List files and get modification times for sorting
+        log.debug(f"Listing .json files in: {abs_parsed_folder}")
         for f in os.listdir(abs_parsed_folder):
              if f.lower().endswith('.json') and os.path.isfile(os.path.join(abs_parsed_folder, f)):
                  try:
                       mtime = os.path.getmtime(os.path.join(abs_parsed_folder, f))
                       files_with_mtime.append((f, mtime))
-                 except OSError:
-                      print(f"Warning: Could not get mtime for {f}")
-                      files_with_mtime.append((f, 0)) # Add with 0 timestamp on error
+                 except OSError as e:
+                      log.warning(f"Could not get modification time for {f}: {e}")
+                      files_with_mtime.append((f, 0)) # Include with timestamp 0
 
-        # Sort by modification time, newest first
+        # Sort by modification time, newest first (optional, could sort results later)
         parsed_json_files = [f[0] for f in sorted(files_with_mtime, key=lambda x: x[1], reverse=True)]
 
         if not parsed_json_files:
-            print("No parsed resumes found to scan.")
-            return jsonify({"jd_used": secure_jd_filename, "results": [], "scan_errors": [], "message": "No parsed resumes found."}), 200
-    except Exception as e:
-        print(f"Error listing parsed resume files: {e}"); traceback.print_exc()
-        return jsonify({"error": "resume_list_error", "message": "Could not list parsed resumes."}), 500
+            log.info("No parsed resumes (.json files) found in the directory.")
+            # Return success with empty results
+            duration = round(time.time() - start_time, 2)
+            return jsonify({
+                "jd_used": secure_jd_filename,
+                "results": [],
+                "scan_errors": [],
+                "summary": {"total_resumes_found": 0, "successfully_scanned": 0, "errors": 0, "duration_seconds": duration}
+            }), 200
 
-    # --- Process Each Resume ---
-    print(f"Found {len(parsed_json_files)} resumes. Starting scan...")
+    except Exception as e:
+        log.error(f"Error listing parsed resume files in {parsed_folder}: {e}", exc_info=True)
+        abort(500, description="Could not list parsed resumes to scan.")
+
+    # --- Process Each Resume JSON File ---
+    log.info(f"Found {len(parsed_json_files)} parsed resumes. Starting scan...")
     success_count = 0
-    abs_parsed_folder = os.path.abspath(parsed_folder) # Cache path
+    abs_parsed_folder = os.path.abspath(parsed_folder) # Re-resolve for security checks
 
     for json_filename in parsed_json_files:
         resume_json_path = os.path.join(abs_parsed_folder, json_filename)
+        abs_resume_json_path = os.path.abspath(resume_json_path)
+        log.debug(f"Processing resume file: {json_filename}")
+
         try:
-            abs_resume_json_path = os.path.abspath(resume_json_path)
             # Security check for resume JSON path
             if not abs_resume_json_path.startswith(abs_parsed_folder + os.sep):
-                 print(f"Access denied to JSON file: {abs_resume_json_path}")
-                 raise ValueError("Attempt to access JSON outside designated folder.")
+                 log.error(f"Access Denied (Path Traversal?): JSON='{abs_resume_json_path}', Base='{abs_parsed_folder}'")
+                 raise ValueError(f"Attempt to access JSON outside designated folder: {json_filename}")
 
             with open(resume_json_path, 'r', encoding='utf-8') as f_json:
                 resume_data = json.load(f_json)
 
-            resume_raw_text = resume_data.get('_raw_text')
+            # Extract necessary fields from JSON (handle missing keys gracefully)
+            resume_raw_text = resume_data.get('_raw_text') # Assumes raw text is saved during parsing
             original_resume_filename = resume_data.get('_original_filename')
 
             if not resume_raw_text:
-                raise ValueError("'_raw_text' missing or empty in JSON.")
+                # If raw text isn't stored, we can't scan. Log error for this file.
+                raise ValueError("'_raw_text' field missing or empty in JSON. Cannot perform keyword matching.")
+
             if not original_resume_filename:
-                 print(f"Warning: '_original_filename' missing in {json_filename}. Using base JSON name.")
-                 original_resume_filename = os.path.splitext(json_filename)[0].replace('_parsed', '')
+                 log.warning(f"'_original_filename' missing in {json_filename}. Using base JSON name for reporting.")
+                 # Attempt to derive original name if possible (e.g., remove '_parsed.json')
+                 original_resume_filename = json_filename.replace('_parsed.json', '')
 
-            # Perform the matching using the utility function
+
+            # --- Perform the matching using the utility function ---
+            # get_match_results uses NLTK initialized globally
             match_data = get_match_results(resume_raw_text, jd_text)
-            if match_data.get("error"): # Check if matching itself had an error (e.g., NLTK failed)
-                raise ValueError(match_data['error'])
 
-            # Append successful result
+            # Check if the matching function itself returned an error (e.g., NLTK failed)
+            if match_data.get("error"):
+                raise ValueError(f"Keyword matching failed: {match_data['error']}")
+
+            # Append successful result including key info from parsed data and match results
             resume_results.append({
                 "original_filename": original_resume_filename,
                 "name": resume_data.get('name', 'N/A'),
                 "email": resume_data.get('email', 'N/A'),
                 "phone": resume_data.get('phone', 'N/A'),
-                "score": match_data["score"],
-                "matching_keywords": match_data["matching_keywords"],
-                "missing_keywords": match_data["missing_keywords"],
-                "match_count": match_data["match_count"],
-                "jd_keyword_count": match_data["jd_keyword_count"],
-                "_parsed_json_filename": json_filename # Keep internal reference if needed
+                "score": match_data.get("score", 0.0),
+                "matching_keywords": match_data.get("matching_keywords", []),
+                "missing_keywords": match_data.get("missing_keywords", []),
+                "match_count": match_data.get("match_count", 0),
+                "jd_keyword_count": match_data.get("jd_keyword_count", 0),
+                "_parsed_json_filename": json_filename # Keep internal reference if needed for debugging/linking
             })
             success_count += 1
+            log.debug(f"Successfully scanned: {original_resume_filename} (Score: {match_data.get('score', 0.0)})")
 
-        except (json.JSONDecodeError, ValueError, OSError, Exception) as e:
+        except (json.JSONDecodeError, ValueError, OSError, KeyError, Exception) as e:
+            # Log specific errors for individual file processing failures
             error_msg = f"{type(e).__name__}: {str(e)}"
-            print(f"Error processing {json_filename}: {error_msg}")
-            # Avoid logging full tracebacks for common errors like JSONDecodeError or expected ValueErrors
-            if not isinstance(e, (json.JSONDecodeError, ValueError, FileNotFoundError)):
-                traceback.print_exc()
+            log.error(f"Error processing resume JSON '{json_filename}': {error_msg}", exc_info=False) # Avoid traceback spam for common errors
+            # Log traceback for unexpected errors
+            if not isinstance(e, (json.JSONDecodeError, ValueError, FileNotFoundError, KeyError)):
+                 log.exception(f"Full traceback for error processing {json_filename}:") # Use log.exception for traceback
+
             scan_errors.append({"filename": json_filename, "error": error_msg})
 
-    # --- Return Results ---
+    # --- Return Combined Results ---
     end_time = time.time()
     duration = round(end_time - start_time, 2)
+
+    # Sort final results by score descending
+    sorted_results = sorted(resume_results, key=lambda x: x['score'], reverse=True)
+
     response_payload = {
         "jd_used": secure_jd_filename,
-        "results": sorted(resume_results, key=lambda x: x['score'], reverse=True), # Sort by score desc
-        "scan_errors": scan_errors,
+        "results": sorted_results,
+        "scan_errors": scan_errors, # Report which files failed
         "summary": {
              "total_resumes_found": len(parsed_json_files),
              "successfully_scanned": success_count,
@@ -164,13 +217,17 @@ def batch_scan_resumes():
              "duration_seconds": duration
         }
     }
-    status_code = 200
-    if scan_errors: status_code = 207 # Multi-Status
-    # Handle case where resumes existed but all failed scanning
-    if not resume_results and not scan_errors and parsed_json_files:
-        status_code = 500 # Indicate something went wrong globally if files existed but none processed
-    elif not parsed_json_files:
-        status_code = 200 # No files found is not an error state, just empty results
 
-    print(f"Batch Scan Complete. Duration: {duration}s. Scanned: {success_count}, Errors: {len(scan_errors)}. Status: {status_code}")
+    # Determine appropriate status code
+    status_code = 200
+    if scan_errors and success_count > 0:
+        status_code = 207 # Multi-Status: Partial success
+        log.warning(f"Batch Scan completed with {len(scan_errors)} errors.")
+    elif scan_errors and success_count == 0 and len(parsed_json_files) > 0:
+        status_code = 500 # All processing failed, likely a systemic issue
+        log.error("Batch Scan failed for all resumes found.")
+    # Case: No JSON files found -> handled earlier, returns 200
+    # Case: All succeeded -> returns 200
+
+    log.info(f"Batch Scan Complete. Duration: {duration}s. Scanned: {success_count}/{len(parsed_json_files)}, Errors: {len(scan_errors)}. Status: {status_code}")
     return jsonify(response_payload), status_code
