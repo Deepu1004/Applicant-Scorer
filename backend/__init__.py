@@ -6,7 +6,7 @@ import spacy
 import traceback
 import subprocess
 import logging # Import logging
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request 
 from flask_cors import CORS
 
 # --- Relative Imports within the 'backend' package ---
